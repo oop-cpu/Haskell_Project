@@ -1,14 +1,11 @@
 module Parser (parseProgram) where
-
 import Syntax
 import Text.Parsec
 import Text.Parsec.String (Parser)
 import Text.Parsec.Expr
 import Control.Monad.Identity (Identity)
 
---------------------------------------------------
 -- Lexer helpers
---------------------------------------------------
 
 lexeme :: Parser a -> Parser a
 lexeme p = p <* spaces
@@ -25,9 +22,7 @@ integer = lexeme (read <$> many1 digit)
 identifier :: Parser String
 identifier = lexeme ((:) <$> letter <*> many (alphaNum <|> char '_'))
 
---------------------------------------------------
 -- Expressions
---------------------------------------------------
 
 pExpr :: Parser Expr
 pExpr = buildExpressionParser table pTerm
@@ -46,9 +41,7 @@ table =
         , Infix (Sub <$ symbol "-") AssocLeft ]
         ]
 
-    --------------------------------------------------
-    -- Points
-    --------------------------------------------------
+-- Points
 
 pPoint :: Parser Point
 pPoint =
@@ -58,9 +51,7 @@ pPoint =
         y <- pExpr
         return (Point x y)
 
-        --------------------------------------------------
-        -- Shapes
-        --------------------------------------------------
+-- Shapes
 
 pShape :: Parser Shape
 pShape =
@@ -68,9 +59,7 @@ pShape =
     <|> Triangle <$ symbol "triangle"
     <|> Circle   <$ symbol "circle"
 
-        --------------------------------------------------
-        -- Conditions
-        --------------------------------------------------
+-- Conditions
 
 pCondition :: Parser Condition
 pCondition = do
@@ -85,9 +74,7 @@ pCondition = do
     e2 <- pExpr
     return (op e1 e2)
 
-            --------------------------------------------------
-            -- Statements
-            --------------------------------------------------
+-- Statements
 
 pSet :: Parser Stmt
 pSet = do
@@ -134,9 +121,7 @@ pInstruct = do
     _ <- symbol ";"
     return InstructDrawing
 
-                                --------------------------------------------------
-                                -- Blocks / control flow
-                                --------------------------------------------------
+-- Blocks / control flow
 
 pBlock :: Parser [Stmt]
 pBlock =
@@ -156,9 +141,7 @@ pWhile = do
     body <- pBlock
     return (While cond body)
 
-                                                        --------------------------------------------------
-                                                        -- Program
-                                                        --------------------------------------------------
+-- Program
 
 pStmt :: Parser Stmt
 pStmt = choice
