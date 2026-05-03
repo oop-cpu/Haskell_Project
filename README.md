@@ -7,6 +7,10 @@
 - `program.txt` should be pre-loaded with a demo program
 
 ### How to Run
+Run/Save/Show from source code `program.txt`
+```bash
+runhaskell Main.hs program.txt 2> instructions.dat; java show
+```
 Run and save instructions:
 ```bash
 runhaskell Main.hs program.txt 2> instructions.dat
@@ -14,6 +18,10 @@ runhaskell Main.hs program.txt 2> instructions.dat
 Run with normal output: 
 ```bash
 runhaskell Main.hs program.txt
+```
+Render and print drawing on terminal: 
+```bash
+java show
 ```
 ### Context-Free Grammar
 ```haskell
