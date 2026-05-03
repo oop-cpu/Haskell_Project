@@ -1,0 +1,28 @@
+shape wall = square size 8 at (60, 26);
+add wall to drawing;
+
+shape roof = triangle size 10 at (60, 16);
+add roof to drawing;
+
+shape door = square size 3 at (60, 31);
+add door to drawing;
+
+shape windowL = square size 2 at (54, 24);
+add windowL to drawing;
+
+shape windowR = square size 2 at (66, 24);
+add windowR to drawing;
+
+shape trunk = square size 2 at (90, 32);
+add trunk to drawing;
+
+shape leaves1 = circle size 5 at (90, 22);
+add leaves1 to drawing;
+
+shape leaves2 = circle size 4 at (85, 24);
+add leaves2 to drawing;
+
+shape leaves3 = circle size 4 at (95, 24);
+add leaves3 to drawing;
+
+instruct drawing;
