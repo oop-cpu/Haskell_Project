@@ -1,5 +1,15 @@
 # Drawing Language
 
+## Needed Installs
+
+- GHC and Java
+```bash
+sudo apt install ghc
+```
+```bash
+sudo apt install java
+```
+
 ## Instructions
 
 ### How to Code
