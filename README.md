@@ -10,6 +10,17 @@ sudo apt install ghc
 sudo apt install java
 ```
 
+## Compile Java
+```bash
+javac shape.java
+```
+```bash
+javac displayManager.java
+```
+```bash
+javac show.java
+```
+
 ## Instructions
 
 ### How to Code
